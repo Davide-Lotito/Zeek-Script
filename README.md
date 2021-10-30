@@ -40,4 +40,7 @@ For xUbuntu 20.04 do the following:
 
 Furthermore, you can download the packages for the latest LTS release build [here](https://software.opensuse.org/download.html?project=security%3Azeek&package=zeek-lts).
 
+By default the binary package install location is `/opt/zeek`. Under `/opt/zeek/bin` there is the executable of the tool, we can launch it from here. Then you can add the Zeek binary path to PATH, so we can launch it without going into its folder. To do it:
+
+
 

@@ -8,7 +8,7 @@ These scripts parse pcap files and produce log files (typical of Zeek). As objec
 - geolocation of the IPs , with  *libmaxminddb* software and *GeoLite2 city* database
 
 ## Getting Started
-Complete documentation at the following [link](https://docs.zeek.org/en/lts/). Below is a quick installation and launch guide.
+Complete documentation at the following [link](https://docs.zeek.org/en/lts/). Below is a quick installation and launch guide for Ubuntu.
 
 ### Dependencies
 

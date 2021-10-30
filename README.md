@@ -29,9 +29,11 @@ Next, the file GeoLite2-City_YYYYMMDD/GeoLite2-City.mmdb needs to be moved to th
 
 ### Installing Zeek
 For xUbuntu 20.04 do the following:
+
 `echo 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/security:zeek.list`
-`curl -fsSL https://download.opensuse.org/repositories/security:zeek/xUbuntu_20.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/security_zeek.gpg > /dev/null
-``sudo apt update`
+
+`curl -fsSL https://download.opensuse.org/repositories/security:zeek/xUbuntu_20.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/security_zeek.gpg > /dev/null`
+`sudo apt update`
 `sudo apt install zeek-lts`
 Furthermore, you can download the packages for the latest LTS release build [here](https://software.opensuse.org/download.html?project=security%3Azeek&package=zeek-lts).
 

@@ -1,10 +1,12 @@
 @load base/protocols/conn
 
 module Beacons;
-##Purpose: how many fully qualified domain names are associated with each domain,
-##which means that we need to count up the number of times something was queried
-##within a specific domain.
+##Purpose:
+#how many fully qualified domain names are associated with each domain?
+#We need to count up the number of times something was queried
+#within a specific domain.
 
+##It seems to be working
 
 #Record useful for printing on the log file, checkDNS.log
 type LineLog: record {
@@ -23,6 +25,7 @@ event zeek_init(){
 	Log::create_stream(checkDNS::LOG, [$columns=LineLog, $path="checkDNS"]);
 }
 
+#Function useful to handle the error that comes up when the field is empty
 function handleMissingValue(rec: DNS::Info): string {
   if (!(rec?$query)){
     return "unknown";
@@ -50,8 +53,9 @@ event DNS::log_dns(rec: DNS::Info){
 #Function useful to write on the checkDNS.log file, at the end of the counts
 function writeLog() {
 	for (l in scanned) {
-    if (l == "unknown"){next;}
-	  Log::write(checkDNS::LOG, LineLog($domainName=l, $counter=scanned[l]));
+	 #in order to not stamp the "domain" unknown
+	 if (l == "unknown"){next;} 
+	 Log::write(checkDNS::LOG, LineLog($domainName=l, $counter=scanned[l]));
 	}
 }
 

@@ -5,7 +5,8 @@ module Beacons;
 #Unexpected usage or unexpected application running across a well-known ports.
 #The control takes place on the ports of the source IP. If there are applications
 #which are not recognized among the knownPorts then I have to worry. Different
-#from apps on a non-standard port, this is sometimes “a feature”.
+#from apps on a non-standard port, this is sometimes “a feature”. Script creates
+#a log file (strangePorts).
 
 
 #It seems to be working
@@ -51,7 +52,7 @@ export{
     return to_upper(rec$service);
   }
 
-  #Function useful to check if a port i
+  #Function useful to check if a port
   function checkPort(p: PortProt): bool {
     if (p in knownPorts){
       return T;

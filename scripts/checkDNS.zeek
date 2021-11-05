@@ -2,7 +2,9 @@
 
 module Beacons;
 ##Purpose:
-#How many fully qualified domain names are associated with each domain?
+#How many fully qualified domain names are associated with each domain? Script
+#creates a log file (checkDNS).
+
 
 ##It seems to be working
 

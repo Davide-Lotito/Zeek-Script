@@ -4,15 +4,16 @@ module Beacons;
 ##Purpose:
 #to create two log files. One that lists for each pair of IPs how many times
 #they "talked" to each other. The other one says the amount of bytes exchanged
-#between them and the occurrence of this amount (for all).
+#between them and the occurrence of this amount (only for top-5).
 
-##it seems to be working!!
+##It works, but only with small pcap files...
 
 #Record useful for printing on the log file, sizeBeacon.log
 type sizeBeaconLine: record {
   sourceAddr: addr &log;
   destAddr: addr &log;
   numberOfConnections: int &log &optional;
+  quanTable: table[count] of int &optional;
 };
 
 #Record useful for printing on the log file, sizeConn.log
@@ -95,11 +96,11 @@ event Conn::log_conn (rec: Conn::Info){
 }
 
 #Function useful to write on the sizeConn.log file sorted, at the end of the counts
-function writeLogSize(actualV: Value, actualI: Info) {
-  local quanTable: table[count] of int = actualV$quantityTable;
+function writeLogSize(actual: sizeBeaconLine) {
+	local quantTable: table[count] of int = actual$quanTable;
 
-  for ( k in quanTable ){
-    local a: sizeConnLine = record($sourceAddr=actualI$addr1, $destAddr=actualI$addr2, $numberOfConnections=actualV$quantityTable[k], $quantity=k);
+  for ( k in quantTable ){
+    local a: sizeConnLine = record($sourceAddr=actual$sourceAddr, $destAddr=actual$destAddr, $numberOfConnections=actual$quanTable[k], $quantity=k);
     Log::write(sizeConn::LOG, a);
   }
 }
@@ -108,16 +109,20 @@ function writeLogSize(actualV: Value, actualI: Info) {
 function writeLogS() {
   local vectStamp: vector of sizeBeaconLine;
 	for (t in scanned){
-		vectStamp += sizeBeaconLine($sourceAddr=t$addr1, $destAddr=t$addr2, $numberOfConnections=scanned[t]$numberConnections);
-    writeLogSize(scanned[t],t);
+		vectStamp += sizeBeaconLine($sourceAddr=t$addr1, $destAddr=t$addr2, $numberOfConnections=scanned[t]$numberConnections, $quanTable=scanned[t]$quantityTable);
 	}
 
-  local i: int = 0;
+  sort(vectStamp, function (a: sizeBeaconLine, b: sizeBeaconLine): int {return a$numberOfConnections < b$numberOfConnections ? 1 : -1;});
 
-  while (i < |vectStamp|){
+  local i: int = 0;
+  local j: int = 0;
+
+  while (i < |vectStamp| && j<5 ){
     local a: sizeBeaconLine = vectStamp[i];
+    writeLogSize(a);
     Log::write(sizeBeacon::LOG, a);
     i+=1;
+    j+=1;
   }
 }
 

@@ -3,7 +3,10 @@
 module Beacons;
 ##Purpose:
 #Unexpected usage or unexpected application running across a well-known ports.
-#The control takes place on the ports of the source IP
+#The control takes place on the ports of the source IP. If there are applications
+#which are not recognized among the knownPorts then I have to worry. Different
+#from apps on a non-standard port, this is sometimes “a feature”.
+
 
 #It seems to be working
 
@@ -27,12 +30,12 @@ export{
   global stamp: vector of Conn::Info;
 	global counter = 0;
   #Set of well-known port
-  global knownPorts = set(PortProt($portN=20/tcp, $protocol="ftp"), PortProt($portN=21/tcp, $protocol="ftp"), PortProt($portN=22/tcp, $protocol="ssh"),
-                    PortProt($portN=23/tcp, $protocol="telnet"), PortProt($portN=25/tcp, $protocol="SMTP"), PortProt($portN=80/tcp, $protocol="HTTP"),
+  global knownPorts = set(PortProt($portN=20/tcp, $protocol="FTP"), PortProt($portN=21/tcp, $protocol="FTP"), PortProt($portN=22/tcp, $protocol="SSH"),
+                    PortProt($portN=23/tcp, $protocol="TELNET"), PortProt($portN=25/tcp, $protocol="SMTP"), PortProt($portN=80/tcp, $protocol="HTTP"),
                     PortProt($portN=110/tcp, $protocol="POP"), PortProt($portN=143/tcp, $protocol="IMAP4"), PortProt($portN=443/tcp, $protocol="HTTPS"),
                     PortProt($portN=465/tcp, $protocol="SMTP"), PortProt($portN=53/udp, $protocol="DNS"), PortProt($portN=67/udp, $protocol="DHCP"),
                     PortProt($portN=68/udp , $protocol="DHCP"));
-
+  global knownProt = set("FTP", "SSH", "TELNET", "SMTP", "HTTP", "POP", "IMAP4", "HTTPS", "DNS", "DHCP")
   }
 
   #Generated at Zeek initialization time.
@@ -53,6 +56,9 @@ export{
     if (p in knownPorts){
       return T;
     } else {
+      if (p$protocol in knownProt){
+        return T;
+      }
       return F;
     }
   }

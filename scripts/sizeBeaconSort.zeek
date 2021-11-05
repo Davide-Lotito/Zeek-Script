@@ -22,7 +22,6 @@ type Info: record {
 
 export{
   redef enum Log::ID += { longConn::LOG };
-
   #It contains all the "connections" and their duration
   global scanned: table[Info] of int &default=0;
 }
@@ -49,10 +48,6 @@ function writeLogS() {
     sort(vectStamp, function (a: LineLog, b: LineLog): int {return a$numberOfConnections < b$numberOfConnections ? 1 : -1;});
 	}
 
-	# for (i in vectStamp){
-	# 	local a: LineLog = vectStamp[i];
-	# 	Log::write(longConn::LOG, a);
-	# }
   local i: int = 0;
   local j: int = 0;
   #I hoped this was less heavy, but it's not so..

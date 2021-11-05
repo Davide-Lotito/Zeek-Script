@@ -2,9 +2,7 @@
 
 module Beacons;
 ##Purpose:
-#how many fully qualified domain names are associated with each domain?
-#We need to count up the number of times something was queried
-#within a specific domain.
+#How many fully qualified domain names are associated with each domain?
 
 ##It seems to be working
 

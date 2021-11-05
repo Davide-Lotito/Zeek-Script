@@ -15,7 +15,7 @@ type LineLog: record {
 };
 
 type Value: record{
-	numberConnections: int;
+	numberConnections: int &default=0;
 	quantityTable: table[int] of int &optional;
 };
 
@@ -27,7 +27,6 @@ type Info: record {
 
 export{
 	redef enum Log::ID += { longConn::LOG };
-
 	#It contains all the "connections" and their duration
 	global scanned: table[Info] of Value;
 }
@@ -62,8 +61,8 @@ function writeLogS() {
   local vectStamp: vector of LineLog;
 	for (t in scanned){
 		vectStamp += LineLog($sourceAddr=t$addr1, $destAddr=t$addr2, $numberOfConnections=scanned[t]$numberConnections);
-    	sort(vectStamp, function (a: LineLog, b: LineLog): int {return a$numberOfConnections < b$numberOfConnections ? 1 : -1;});
 	}
+  sort(vectStamp, function (a: LineLog, b: LineLog): int {return a$numberOfConnections < b$numberOfConnections ? 1 : -1;});
 
   local i: int = 0;
   local j: int = 0;

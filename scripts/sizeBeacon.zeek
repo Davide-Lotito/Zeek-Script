@@ -38,7 +38,6 @@ event Conn::log_conn (rec: Conn::Info){
   local actualTalk: Info = record($addr1=rec$id$orig_h, $addr2=rec$id$resp_h);
 
   scanned[actualTalk]+=1;
-
 }
 
 #Function useful to write on the longConn.log file, at the end of the counts

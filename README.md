@@ -1,6 +1,6 @@
 # Zeek-Script
 
-## Introduction
+## Goals
 These scripts parse pcap files and produce log files (typical of Zeek). As objectives they have:
 - looking for long connections, based on duration
 - seeking persistent connections
@@ -10,7 +10,8 @@ These scripts parse pcap files and produce log files (typical of Zeek). As objec
 - check if there are any problems with SSL certificates, such as expired or self-signed
 - check if there are any unexpected usage or unexpected application running across a well-known ports
 
-
+## Documentation
+At the following [link](https://github.com/Davide-Lotito/Zeek-Script/wiki) you can find complete documentation for Zeek installation and use of scripts.
 
 
 

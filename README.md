@@ -1,5 +1,5 @@
 # Zeek-Script
-Each script scans the _pcap file_ looking for one of the main symptoms on the network that there is a command and control server. Therefore each script produces a _log file_ to show the results of its analysis.
+Each script scans the _pcap file_ looking for one of the main symptoms on the network that there is a command and control server. Therefore each script produces a _log file_ to show the results of its analysis. Note that disrupting C2 can prevent a malware infection from turning into a more serious incident such as a data breach. In fact, many large-scale cyberattacks were initially discovered when researchers noticed C2 activity.
 
 ## Goals
 These scripts parse _pcap files_ and produce _log files_ (typical of Zeek). As objectives they have:

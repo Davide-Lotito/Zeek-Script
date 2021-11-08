@@ -4,7 +4,7 @@ Each script scans the _pcap file_ looking for one of the main symptoms on the ne
 ## Goals
 These scripts parse _pcap files_ and produce _log files_ (typical of Zeek). As objectives they have:
 - looking for long connections, based on duration
-- seeking persistent connections
+- seeking persistent connections, base on times "talked" to each other
 - count of equal-sized packets per connection
 - geolocation of the IPs , with  *libmaxminddb* software and *GeoLite2 city* database
 - count how many fully qualified domain names are associated with each domain

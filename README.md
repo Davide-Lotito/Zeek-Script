@@ -1,4 +1,5 @@
 # Zeek-Script
+Each script scans the pcap file looking for one of the main symptoms on the network that there is a command and control server. 
 
 ## Goals
 These scripts parse pcap files and produce log files (typical of Zeek). As objectives they have:

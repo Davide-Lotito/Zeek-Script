@@ -5,8 +5,6 @@ module Beacons;
 ##to create a log file that which lists for each pair of IPs how many times
 #they "talked" to each other.
 
-##it seems to be working!!
-
 #Record useful for printing on the log file, longConn.log
 type LineLog: record {
   sourceAddr: addr &log;

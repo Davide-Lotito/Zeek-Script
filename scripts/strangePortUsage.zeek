@@ -8,9 +8,6 @@ module Beacons;
 #from apps on a non-standard port, this is sometimes “a feature”. Script creates
 #a log file (strangePorts).
 
-
-#It seems to be working
-
 #Record useful for printing on the log file, strangePorts.log
 type LineLog: record {
   timeStamp: time &log;

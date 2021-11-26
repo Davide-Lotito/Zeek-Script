@@ -5,9 +5,6 @@ module Beacons;
 #How many fully qualified domain names are associated with each domain? Script
 #creates a log file (checkDNS).
 
-
-##It seems to be working
-
 #Record useful for printing on the log file, checkDNS.log
 type LineLog: record {
   domainName: string &log &optional;

@@ -6,8 +6,6 @@ module Beacons;
 #they "talked" to each other. The other one says the amount of bytes exchanged
 #between them and the occurrence of this amount (for all).
 
-##it seems to be working!!
-
 #Record useful for printing on the log file, sizeBeacon.log
 type sizeBeaconLine: record {
   sourceAddr: addr &log;

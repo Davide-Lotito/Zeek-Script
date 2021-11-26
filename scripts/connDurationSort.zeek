@@ -6,8 +6,6 @@ module Beacons;
 #to create a log sorted file that which lists for each pair of IPs the amount
 #of time in which they "talked" to each other.
 
-##It works, but only with small pcap files...
-
 #Record useful for printing on the log file, longConn.log
 type LineLog: record {
   sourceAddr: addr &log;

@@ -5,12 +5,6 @@ module Beacons;
 #to create a log file that which lists for each pair of IPs the amount of time
 #in which they "talked" to each other. It uses the GeoLocation framework too.
 
-##it seems to be working!!
-
-#Maybe I can create a support separate file with the useful function
-#@load nomeFile.zeek
-#module::nomeFunzione()
-
 #Record useful for printing on the log file, longConn.log
 type LineLog: record {
   line: int &log;

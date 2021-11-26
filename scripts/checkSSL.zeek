@@ -5,8 +5,6 @@ module Beacons;
 #check if there are any problems with SSL certificates,
 #such as expired or self-signed
 
-#It seems to be working
-
 #Reminder:
 #"unable to get local issuer certificate" --> a self-signed certificate cannot be verified.
 

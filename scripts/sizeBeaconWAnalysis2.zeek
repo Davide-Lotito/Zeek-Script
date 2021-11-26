@@ -6,8 +6,6 @@ module Beacons;
 #they "talked" to each other. The other one says the amount of bytes exchanged
 #between them and the occurrence of this amount (only for top-5).
 
-##It works, but only with small pcap files...
-
 #Record useful for printing on the log file, sizeBeacon.log
 type sizeBeaconLine: record {
   sourceAddr: addr &log;

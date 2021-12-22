@@ -14,5 +14,6 @@ These scripts parse _pcap files_ and produce _log files_ (typical of Zeek). As o
 ## Documentation
 At the following [link](https://github.com/Davide-Lotito/Zeek-Script/wiki) you can find complete documentation for Zeek installation and use of scripts.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Davide-Lotito/Zeek-Script/blob/master/LICENSE)
 
 

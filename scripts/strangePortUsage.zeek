@@ -33,7 +33,7 @@ export{
                     PortProt($portN=110/tcp, $protocol="POP"), PortProt($portN=143/tcp, $protocol="IMAP4"), PortProt($portN=443/tcp, $protocol="HTTPS"),
                     PortProt($portN=465/tcp, $protocol="SMTP"), PortProt($portN=53/udp, $protocol="DNS"), PortProt($portN=67/udp, $protocol="DHCP"),
                     PortProt($portN=68/udp , $protocol="DHCP"));
-  global knownProt = set("FTP", "SSH", "TELNET", "SMTP", "HTTP", "POP", "IMAP4", "HTTPS", "DNS", "DHCP")
+  global knownProt = set("FTP", "SSH", "TELNET", "SMTP", "HTTP", "POP", "IMAP4", "HTTPS", "DNS", "DHCP");
   }
 
   #Generated at Zeek initialization time.
